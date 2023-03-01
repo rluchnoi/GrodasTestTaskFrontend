@@ -1,4 +1,5 @@
 import { fetchData, sortAgeDesc, sortRatingDesc } from "./helpers";
+import logTagsData from "./scripts";
 
 /**
  * Create latest products
@@ -178,6 +179,8 @@ function createBanner (parent) {
  * Execute js
  */
 async function main() {
+    logTagsData();
+
     const data = await fetchData();
 
     const top5ByRating = (data.sort(sortRatingDesc)).slice(0, 5);
@@ -186,8 +189,8 @@ async function main() {
     const topRatingEl  = document.getElementById('top-rating');
     const newestEl     = document.getElementById('newest');
 
-    await createMultipleTopProducts(topRatingEl, top5ByRating);
-    await createMultipleLatestProducts(newestEl, bottom2ByAge);
+    createMultipleTopProducts(topRatingEl, top5ByRating);
+    createMultipleLatestProducts(newestEl, bottom2ByAge);
 
     createBanner(newestEl);
 }
