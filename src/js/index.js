@@ -189,8 +189,8 @@ async function main() {
     const topRatingEl  = document.getElementById('top-rating');
     const newestEl     = document.getElementById('newest');
 
-    await createMultipleTopProducts(topRatingEl, top5ByRating);
-    await createMultipleLatestProducts(newestEl, bottom2ByAge);
+    createMultipleTopProducts(topRatingEl, top5ByRating);
+    createMultipleLatestProducts(newestEl, bottom2ByAge);
 
     createBanner(newestEl);
 }
