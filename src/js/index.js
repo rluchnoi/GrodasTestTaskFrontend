@@ -1,4 +1,5 @@
 import { fetchData, sortAgeDesc, sortRatingDesc } from "./helpers";
+import logTagsData from "./scripts";
 
 /**
  * Create latest products
@@ -178,6 +179,8 @@ function createBanner (parent) {
  * Execute js
  */
 async function main() {
+    logTagsData();
+
     const data = await fetchData();
 
     const top5ByRating = (data.sort(sortRatingDesc)).slice(0, 5);
